@@ -16,7 +16,7 @@ matrix:
   include:
 
     - os: linux
-      dist: bionic
+      dist: precise
       name: GCC 10
       if: (branch !~ ^r/.*$ AND head_branch !~ ^r/.*$)
 
