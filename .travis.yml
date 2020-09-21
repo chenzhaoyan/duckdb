@@ -20,6 +20,13 @@ matrix:
       name: GCC
       if: (branch !~ ^r/.*$ AND head_branch !~ ^r/.*$)
 
+      addons:
+        apt:
+          sources:
+            - sourceline: 'ppa:george-edison55/cmake-3.x'
+
+           packages:
+            - cmake
 
       script:
         - mkdir -p build/release
