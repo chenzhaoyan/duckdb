@@ -283,6 +283,11 @@ matrix:
 
       arch: arm64
 
+      addons:
+        apt:
+          packages:
+            - openjdk-8-jdk-headless
+
       script:
         - mkdir -p build/release
         - (cd build/release && cmake -DJDBC_DRIVER=1 -DEXPLICIT_EXCEPTIONS=TRUE -DCMAKE_BUILD_TYPE=Release ../.. && cmake --build .)
