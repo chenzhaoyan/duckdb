@@ -1,7 +1,7 @@
 find_package(Java 1.8)
 find_package(JNI)
 
-cmake_minimum_required(VERSION 3.11.0)
+cmake_minimum_required(VERSION 3.0.2)
 
 
 if(NOT JNI_FOUND OR NOT Java_FOUND)
