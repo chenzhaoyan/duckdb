@@ -285,7 +285,7 @@ matrix:
 
       script:
         - mkdir -p build/release
-        - (cd build/release && cmake -DEXPLICIT_EXCEPTIONS=TRUE -DCMAKE_BUILD_TYPE=Release -DBUILD_ICU_EXTENSION=1 -DBUILD_PARQUET_EXTENSION=1 ../.. && make -j10)
+        - (cd build/release && cmake -DEXPLICIT_EXCEPTIONS=TRUE -DCMAKE_BUILD_TYPE=Release -DBUILD_ICU_EXTENSION=1 -DBUILD_PARQUET_EXTENSION=1 ../.. && make -j5)
         - build/release/test/unittest -s "[tpch]"
         - zip -j libduckdb-linux-aarch64.zip build/release/src/libduckdb*.so
         - zip -j duckdb_cli-linux-aarch64.zip build/release/duckdb
