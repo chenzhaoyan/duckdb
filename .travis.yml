@@ -284,9 +284,12 @@ matrix:
       arch: arm64
 
       script:
-        - mkdir -p build/debug
-        - (cd build/debug && cmake -DEXPLICIT_EXCEPTIONS=TRUE -DCMAKE_BUILD_TYPE=Debug ../.. && cmake --build .)
-        - build/debug/test/unittest -s "[tpch]"
+        - mkdir -p build/release
+        - (cd build/release && cmake -DEXPLICIT_EXCEPTIONS=TRUE -DCMAKE_BUILD_TYPE=Release -DBUILD_ICU_EXTENSION=1 -DBUILD_PARQUET_EXTENSION=1 ../.. && make -j10)
+        - build/release/test/unittest -s "[tpch]"
+        - zip -j libduckdb-linux-aarch64.zip build/release/src/libduckdb*.so
+        - zip -j duckdb_cli-linux-aarch64.zip build/release/duckdb
+        - python3 scripts/asset-upload.py libduckdb-linux-aarch64.zip duckdb_cli-linux-aarch64.zip
 
 
     # - os: linux
